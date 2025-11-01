@@ -1,7 +1,13 @@
 [build]
-  command = "hugo"
   publish = "public"
+  command = "hugo --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.125.7"
   GO_VERSION = "1.21.0"
+  GOPROXY = "https://proxy.golang.org,direct"
+  GOSUMDB = "sum.golang.org"
+  GO111MODULE = "on"
+
+[context.production.environment]
+  HUGO_ENV = "production"
