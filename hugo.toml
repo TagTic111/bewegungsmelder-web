@@ -1,11 +1,11 @@
 baseURL = 'https://69061e2b10154b6d340cb822--zippy-cupcake-c876f6.netlify.app/'
 languageCode = 'de-de'
-title = 'Meine Website'
+title = 'Bewegungsmelder Osnabrück'
 
 [module]
 [[module.imports]]
 path = "github.com/theNewDynamic/gohugo-theme-ananke"
 
 [params]
-author = "Ihr Name"
-description = "Beschreibung Ihrer Website"
+author = "Bewegungsmelder"
+description = "Termine und Veranstaltungen in Osnabrück"
