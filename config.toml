@@ -1,3 +1,4 @@
 baseURL = "https://zippy-cupcake-c876f6.netlify.app/"
 languageCode = "de"
 title = "Bewegungsmelder"
+contentDir = "content"
