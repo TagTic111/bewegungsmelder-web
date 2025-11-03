@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <h1>Meine Posts</h1>
+  {{ range .Site.RegularPages }}
+    <div>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary }}</p>
+      <a href="{{ .RelPermalink }}">Weiterlesen →</a>
+    </div>
+  {{ end }}
+{{ end }}
