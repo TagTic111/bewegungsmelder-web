@@ -1,14 +1,31 @@
 {{ define "main" }}
-  <article>
-    <section>
-      <h2>Alle Seiten, die Hugo erkennt:</h2>
-      {{ range .Site.RegularPages }}
-        <div>
-          Titel: {{ .Title }}<br>
-          Pfad: {{ .File.Path }}<br>
-          Inhalt: {{ .Content | safeHTML }}
+<article class="pa3 pa4-ns nested-copy-line-height">
+
+  {{/* Intro / optionaler Content der Startseite */}}
+  <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+    {{ .Content }}
+  </section>
+
+  {{/* Bereich für alle Posts vom Typ "post" */}}
+  <section class="flex-ns mt5 flex-wrap justify-around">
+    {{ $posts := where .Site.RegularPages "Type" "post" }}
+    {{ range $posts }}
+      <div class="w-100 w-30-l mb4 relative bg-white pa3 br2 shadow-1">
+        <h2 class="f4 fw6 mv2">
+          <a href="{{ .RelPermalink }}" class="link dim black">{{ .Title }}</a>
+        </h2>
+        <div class="f6 lh-copy">
+          {{ .Summary | safeHTML }}
         </div>
-      {{ end }}
-    </section>
-  </article>
+        <div class="mt3">
+          <a href="{{ .RelPermalink }}" class="f6 link dim blue">Weiterlesen →</a>
+        </div>
+      </div>
+    {{ end }}
+  </section>
+
+  {{/* Paginierung, falls du viele Posts hast */}}
+  {{ template "_internal/pagination.html" . }}
+
+</article>
 {{ end }}
