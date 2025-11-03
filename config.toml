@@ -4,3 +4,5 @@ title = "Bewegungsmelder"
 contentDir = "content"
 [params]
   mainSections = ["posts"]
+  [params.ananke]
+    show_recent_posts = true
