@@ -239,7 +239,7 @@
         // --- ACTIONS (Alle nutzen jetzt die globale Collection 'tasks') ---
         const addTask = async (e) => {
             e.preventDefault();
-            if(!connected) { 
+            if(!connected || !dbRef.current) { 
                 alert("Bitte warten - Verbindung wird noch hergestellt..."); 
                 return; 
             }
@@ -275,7 +275,7 @@
             } catch(e) {
                 console.error("Pomo-Update Fehler:", e);
             }
-        }
+        };
 
         const toggleComplete = async (task) => {
             if(!connected || !dbRef.current) return;
